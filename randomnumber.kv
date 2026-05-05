@@ -1,0 +1,23 @@
+<MyRoot>:
+    random_label: random_label
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 10
+
+        Label:
+            text: "Random Number"
+            font_size: 30
+            color: 0, 0.62, 0.96, 1
+
+        Label:
+            id: random_label
+            text: "_"
+            font_size: 30
+
+        Button:
+            text: "Generate"
+            font_size: 15
+            size_hint_y: 0.3
+            on_press: root.generate_number()
