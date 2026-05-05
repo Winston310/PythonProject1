@@ -16,16 +16,15 @@ jobs:
       - name: Checkout project
         uses: actions/checkout@v4
 
-      - name: Build with Buildozer
-        uses: ArtemSBulgakov/buildozer-action@v1
-        id: buildozer
+      - name: Build APK with Buildozer
+        uses: digreatbrian/buildozer-action@v2
         with:
-          command: buildozer android debug
-          workdir: .
-          buildozer_version: stable
+          python-version: 3.11
+          buildozer-cmd: buildozer -v android debug
+          work-dir: .
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: randomnumber-apk
-          path: ${{ steps.buildozer.outputs.filename }}
+          path: ./bin/*.apk
